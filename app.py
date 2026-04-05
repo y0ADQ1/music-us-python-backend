@@ -36,10 +36,17 @@ def download_audio():
 
     # Configuración nativa de yt-dlp
     ydl_opts = {
-        'format': 'best', 
+        'format': 'bestaudio/best', # Volvemos a pedir solo audio
         'outtmpl': output_template,
-        'cookiefile': cookie_path, # Usamos la ruta absoluta segura
-        'impersonate': 'chrome',   # Ahora sí funcionará gracias a curl_cffi
+        'cookiefile': cookie_path, 
+        
+        # 👇 El truco maestro en Python para evitar el 403 de YouTube 👇
+        'extractor_args': {
+            'youtube': {
+                'player_client': ['android']
+            }
+        },
+        
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',
             'preferredcodec': 'mp3',
