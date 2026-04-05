@@ -30,11 +30,16 @@ def download_audio():
 
     print(f"Iniciando descarga de audio para URL: {url}")
 
+    # Forzamos la ruta absoluta al archivo de cookies
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    cookie_path = os.path.join(base_dir, 'cookies.txt')
+
     # Configuración nativa de yt-dlp
     ydl_opts = {
-        'format': 'bestaudio/best', # Pedimos el mejor audio
+        'format': 'best', 
         'outtmpl': output_template,
-        'cookiefile': 'cookies.txt', # Tus cookies para saltar el bloqueo de YouTube
+        'cookiefile': cookie_path, # Usamos la ruta absoluta segura
+        'impersonate': 'chrome',   # Ahora sí funcionará gracias a curl_cffi
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',
             'preferredcodec': 'mp3',
