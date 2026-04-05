@@ -1,0 +1,15 @@
+# Entornos virtuales
+venv/
+env/
+
+# Archivos cacheados de Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Archivos temporales de tu app
+temp/
+
+# Archivos de sistema operativo (Mac/Windows)
+.DS_Store
+Thumbs.db
