@@ -17,5 +17,5 @@ COPY . .
 # Exponemos el puerto
 EXPOSE 10000
 
-# Usamos Gunicorn para correr la app de forma estable en la nube, con un timeout alto (120s) por si la canción es larga
-CMD ["gunicorn", "--bind", "0.0.0.0:10000", "--timeout", "120", "app:app"]
+# Usamos la variable $PORT que Render nos inyecta automáticamente
+CMD gunicorn --bind 0.0.0.0:$PORT --timeout 120 app:app
