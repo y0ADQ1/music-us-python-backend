@@ -38,12 +38,14 @@ def download_audio():
     ydl_opts = {
         'format': 'bestaudio/best', 
         'outtmpl': output_template,
-        'cookiefile': cookie_path, 
         
-        # 👇 Cambiamos el camuflaje de Android a iOS (iPhone) 👇
+        # ❌ ELIMINAMOS LAS COOKIES PARA NO ALERTAR A YOUTUBE DEL SALTO DE PAÍS ❌
+        # 'cookiefile': cookie_path, 
+        
+        # 👇 Nos disfrazamos de una Smart TV (tiene muchas menos medidas de seguridad) 👇
         'extractor_args': {
             'youtube': {
-                'player_client': ['ios'] 
+                'player_client': ['tv', 'mweb']
             }
         },
         
