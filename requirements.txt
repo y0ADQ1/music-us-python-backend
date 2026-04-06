@@ -1,4 +1,4 @@
 Flask==3.0.3
 Flask-Cors==4.0.0
-yt-dlp
+yt-dlp @ https://github.com/yt-dlp/yt-dlp/archive/master.tar.gz
 gunicorn==21.2.0
