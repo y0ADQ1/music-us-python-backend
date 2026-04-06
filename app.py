@@ -36,14 +36,14 @@ def download_audio():
 
     # Configuración nativa de yt-dlp
     ydl_opts = {
-        'format': 'bestaudio/best', # Volvemos a pedir solo audio
+        'format': 'bestaudio/best', 
         'outtmpl': output_template,
         'cookiefile': cookie_path, 
         
-        # 👇 El truco maestro en Python para evitar el 403 de YouTube 👇
+        # 👇 Cambiamos el camuflaje de Android a iOS (iPhone) 👇
         'extractor_args': {
             'youtube': {
-                'player_client': ['android']
+                'player_client': ['ios'] 
             }
         },
         
